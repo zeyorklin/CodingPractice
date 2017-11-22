@@ -8,13 +8,12 @@ public class Question_7 {
 		int[][] matrix = randomMatrix(6, 6, 0, 9);
 		printMatrix(matrix);
 		System.out.println();
-		int[][] result = rotate(matrix);
-		printMatrix(result);
+		rotate(matrix);
+		printMatrix(matrix);
 	}
 	
-	public static int[][] rotate(int[][] matrix)
+	public static void rotate(int[][] matrix)
 	{
-		int[][] result = matrix;
 		int n = matrix.length;
 		for(int layer = 0; layer < n/2; layer++)
 		{
@@ -24,13 +23,12 @@ public class Question_7 {
 			{
 				int offset = i - first;
 				int top = matrix[first][i];
-				result[first][i] = matrix[last - offset][first];
-				result[last - offset][first] = matrix[last][last - offset];
-				result[last][last - offset] = matrix[i][last];
-				result[i][last] = top;
+				matrix[first][i] = matrix[last - offset][first];
+				matrix[last - offset][first] = matrix[last][last - offset];
+				matrix[last][last - offset] = matrix[i][last];
+				matrix[i][last] = top;
 			}
 		}
-		return result;
 	}
 	
 	public static int[][] randomMatrix(int M, int N, int min, int max)
@@ -50,8 +48,7 @@ public class Question_7 {
 		{
 			for(int j=0; j<matrix[i].length; j++)
 			{
-				System.out.print(" ");
-				System.out.print(" " + matrix[i][j]);
+				System.out.print("  " + matrix[i][j]);
 			}
 			System.out.println();
 		}
