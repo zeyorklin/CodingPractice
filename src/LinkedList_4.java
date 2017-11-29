@@ -1,3 +1,5 @@
+import java.text.Bidi;
+
 import DataStructuresHelpers.LinkedList;
 
 public class LinkedList_4 {
@@ -14,6 +16,7 @@ public class LinkedList_4 {
 			first = second;
 		}
 		System.out.println(head.printLinkedList());
+		System.out.println("Partition at 10: " + partitionList(head, 10).printLinkedList());
 	}
 	
 	public static LinkedList partitionList(LinkedList n, int x)
@@ -21,19 +24,46 @@ public class LinkedList_4 {
 		LinkedList smallerList = null;
 		LinkedList smallerListNext = null;
 		LinkedList biggerList = null;
+		LinkedList biggerListNext = null;
 		while(n != null)
 		{
-			if(smallerList == null)
+			LinkedList next = n.next;
+			n.next = null;
+			if(n.data < x)
 			{
-				smallerList.data = n.data;
-				smallerListNext = smallerList;
+				if(smallerList == null)
+				{
+					smallerList = n;
+					smallerListNext = smallerList;
+				}
+				else 
+				{
+					System.out.println(smallerList.printLinkedList());
+					System.out.println(smallerListNext.printLinkedList());
+					smallerListNext.next = n;
+					smallerListNext = n;
+				}
 			}
-			else 
+			else
 			{
-				smallerListNext.next.data = n.data;
+				if(biggerList == null)
+				{
+					biggerList = n;
+					biggerListNext = biggerList;
+				}
+				else
+				{
+					biggerListNext.next = n;
+					biggerListNext = n;
+				}
 			}
+			n = next;
 		}
 		
+		if(smallerList == null)
+			return biggerList;
+		
+		smallerListNext.next = biggerList;
 		return smallerList;
 	}
 }
