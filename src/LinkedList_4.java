@@ -29,7 +29,7 @@ public class LinkedList_4 {
 			LinkedList next = n.next;
 			if(n.data < x)
 			{
-				System.out.println(head.printLinkedList());
+				
 				n.next = head;
 				head = n;
 			}
