@@ -14,8 +14,6 @@ public class HelperFunctions {
 			next.previousNode(first);
 			first = next;
 		}
-		System.out.println("testing");
-		head.printLinkedList();
 		return head;
 	}
 }
