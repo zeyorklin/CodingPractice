@@ -1,3 +1,5 @@
+package LinkedListPractice;
+
 import java.util.HashSet;
 
 import DataStructuresHelpers.LinkedList;

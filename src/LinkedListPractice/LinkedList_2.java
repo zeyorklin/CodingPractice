@@ -1,3 +1,5 @@
+package LinkedListPractice;
+
 import DataStructuresHelpers.LinkedList;
 
 public class LinkedList_2 {
