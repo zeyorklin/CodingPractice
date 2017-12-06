@@ -1,5 +1,7 @@
 package LinkedListPractice;
 
+import java.util.Stack;
+
 import DataStructuresHelpers.LinkedList;
 
 public class LinkedList_Palindrome {
@@ -16,7 +18,7 @@ public class LinkedList_Palindrome {
 			first = next;
 		}
 		
-		for(int i=4; i > 0; i--)
+		for(int i=3; i > 0; i--)
 		{
 			next = new LinkedList(i, null, null);
 			first.nextNode(next);
@@ -24,7 +26,7 @@ public class LinkedList_Palindrome {
 			first = next;
 		}
 		
-		System.out.println("Is " + head.printLinkedList() + " a palindrome: " + checkPalindrome(head));
+		System.out.println("Is " + head.printLinkedList() + " a palindrome: " + checkPalindrome2(head));
 		
 		System.out.print(reverseLinkedList(head).printLinkedList());
 	}
@@ -55,4 +57,30 @@ public class LinkedList_Palindrome {
 		return true;
 	}
 	
+	public static boolean checkPalindrome2(LinkedList list)
+	{
+		LinkedList slowRunner = list;
+		LinkedList fastRunner = list;
+		
+		Stack<Integer> linkedListStack = new Stack<Integer>();
+		while(fastRunner != null && fastRunner.next != null)
+		{
+			linkedListStack.push(slowRunner.data);
+			slowRunner = slowRunner.next;
+			fastRunner = fastRunner.next.next;
+		}
+		
+		if(fastRunner != null)
+			slowRunner = slowRunner.next;
+		
+		while(slowRunner != null)
+		{
+			int stackValue = linkedListStack.pop().intValue();
+			if(stackValue != slowRunner.data)
+				return false;
+			slowRunner = slowRunner.next;
+		}
+		
+		return true;
+	}
 }
