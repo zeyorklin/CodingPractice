@@ -16,14 +16,14 @@ public class LinkedList_5_Addition {
 		System.out.println(result.printLinkedList());
 	}
 	
-	public static PartialSum additionLinkedList(LinkedList firstNum, LinkedList secondNum)
+	public static DataClass additionLinkedList(LinkedList firstNum, LinkedList secondNum)
 	{
 		if(firstNum == null && secondNum == null)
 		{
-			PartialSum sum = new PartialSum();
+			DataClass sum = new DataClass();
 			return sum;
 		}
-		PartialSum sum = additionLinkedList(firstNum.next, secondNum.next);
+		DataClass sum = additionLinkedList(firstNum.next, secondNum.next);
 		int val = sum.carry + firstNum.data + secondNum.data;
 		LinkedList listResult = insertFront(sum.sum, val % 10);
 		sum.sum = listResult;
@@ -46,7 +46,7 @@ public class LinkedList_5_Addition {
 			firstNum = padList(firstNum, length2 - length1);
 		}
 		
-		PartialSum sum = additionLinkedList(firstNum, secondNum);
+		DataClass sum = additionLinkedList(firstNum, secondNum);
 		if(sum.carry == 0)
 			return sum.sum;
 		else
