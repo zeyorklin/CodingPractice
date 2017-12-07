@@ -42,6 +42,18 @@ public class LinkedList {
 		}
 	}
 	
+	public String printLoopLinkedList(int count)
+	{
+		if(next != null && count != 0)
+		{
+			return data + "->" + next.printLoopLinkedList(count - 1);
+		}
+		else 
+		{
+			return ((Integer) data).toString();
+		}
+	}
+	
 	public String printLinkedList()
 	{
 		if(next != null)
