@@ -1,9 +1,6 @@
-package LinkedListPractice;
+package linkedListPractice;
 
-import javax.naming.spi.DirStateFactory.Result;
-import javax.xml.crypto.Data;
-
-import DataStructuresHelpers.LinkedList;
+import DataStructuresHelpers.*;
 
 public class LinkedList_Palindrome_Recursion {
 	public static void main(String[] args)
@@ -31,20 +28,9 @@ public class LinkedList_Palindrome_Recursion {
 				
 	}
 	
-	public static int LinkedListLenth(LinkedList list)
-	{
-		int length = 0;
-		while(list != null)
-		{
-			length ++;
-			list = list.next;
-		}
-		return length;
-	}
-	
 	public static boolean isPalindrome(LinkedList list)
 	{
-		int length = LinkedListLenth(list);
+		int length = HelperFunctions.LinkedListLength(list);
 		DataClass check = checkPalindromeRecursion(list, length);
 		return check.result;
 	}

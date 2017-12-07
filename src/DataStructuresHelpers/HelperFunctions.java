@@ -4,16 +4,35 @@ public class HelperFunctions {
 	
 	public static LinkedList generateRandomLinkedList(int length, int max, int min)
 	{
-		LinkedList first = new LinkedList((int)(Math.random()*9 + 0), null, null);
+		LinkedList first = new LinkedList((int)(Math.random()*(max - min) + 1), null, null);
 		LinkedList head = first;
 		LinkedList next = first;
 		for(int i=1; i<length; i++)
 		{
-			next = new LinkedList((int)(Math.random()*9 + 0), null, null);
+			next = new LinkedList((int)(Math.random()*(max - min) + 1), null, null);
 			first.nextNode(next);
 			next.previousNode(first);
 			first = next;
 		}
 		return head;
+	}
+	
+	public static int LinkedListLength(LinkedList list)
+	{
+		int length = 0;
+		while(list != null)
+		{
+			length ++;
+			list = list.next;
+		}
+		return length;
+	}
+	
+	public static LinkedList EndOfList(LinkedList list)
+	{
+		LinkedList end = list;
+		while(end.next != null)
+			end = end.next;
+		return end;
 	}
 }

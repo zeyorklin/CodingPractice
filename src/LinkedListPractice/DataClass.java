@@ -1,4 +1,4 @@
-package LinkedListPractice;
+package linkedListPractice;
 
 
 import DataStructuresHelpers.LinkedList;
