@@ -13,5 +13,6 @@ public class DataClass {
 	{
 		sum = list;
 		result = res;
+		
 	}
 }
