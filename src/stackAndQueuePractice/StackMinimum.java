@@ -16,7 +16,7 @@ public class StackMinimum extends Stack<Integer>{
 		{
 			minStack.push(value);
 		}
-		super.push(value);
+		super.push(value);  //super calls parent constructor (Stack<Integer>)
 	}
 	
 	public Integer pop()
