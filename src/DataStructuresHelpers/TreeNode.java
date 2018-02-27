@@ -38,4 +38,23 @@ public class TreeNode {
 		int rightHeight = right != null ? right.height() : 0;
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
+	
+	public void insert (int d)
+	{
+		if(d <= data)
+		{
+			if(left == null)
+				setLeftChild(new TreeNode(d));
+			else
+				left.insert(d);
+		}
+		else 
+		{
+			if(right == null)
+				setRightChild(new TreeNode(d));
+			else
+				right.insert(d);
+		}
+		size++;
+	}
 }
