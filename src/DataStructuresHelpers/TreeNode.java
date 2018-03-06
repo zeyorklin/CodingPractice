@@ -39,6 +39,35 @@ public class TreeNode {
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
 	
+	public int getDepth()
+	{
+		int depth = 0;
+		TreeNode node = this;
+		while(node != null)
+		{
+			node = node.parent;
+			depth ++;
+		}
+		return depth;
+	}
+	
+	public TreeNode find(int data)
+	{
+		if(this.data == data)
+		{
+			return this;
+		}
+		else if(data <= this.data){
+			return left != null ? left.find(data) : null;
+		}
+		else if(data > this.data)
+		{
+			return right != null ? right.find(data) : null;
+		}
+		
+		return null;
+	}
+	
 	public void insert (int d)
 	{
 		if(d <= data)

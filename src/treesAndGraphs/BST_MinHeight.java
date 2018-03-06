@@ -6,6 +6,8 @@ public class BST_MinHeight {
 	{
 		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		TreeNode root = createMinHeightBST(array);
+		TreeNode node = root.find(5);
+		System.out.println(node.data + " is at depth " + node.getDepth());
 		System.out.println("Root of the tree is: " + root.data);
 		System.out.println("Height of the tree is: " + root.height());
 	}
