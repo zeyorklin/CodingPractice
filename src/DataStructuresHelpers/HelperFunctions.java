@@ -17,6 +17,18 @@ public class HelperFunctions {
 		return head;
 	}
 	
+	public static String numToBitString(int n, int limit)
+	{
+		String bitString = "";
+		for(int i=0; i < limit; i++)
+		{
+			Integer lsb = new Integer(n & 1);
+			bitString = lsb.toString() + bitString;
+			n = n >> 1;
+		}
+		return bitString;
+	}
+	
 	public static int LinkedListLength(LinkedList list)
 	{
 		int length = 0;
