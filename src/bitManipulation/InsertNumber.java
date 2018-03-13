@@ -7,9 +7,9 @@ public class InsertNumber {
 		int n = 2049;
 		int m = 19;
 		int result = insertNumber(n, m, 2, 6);
-		System.out.println(HelperFunctions.numToBitString(n, 16));
-		System.out.println(HelperFunctions.numToBitString(m, 16));
-		System.out.println(HelperFunctions.numToBitString(result, 16));
+		System.out.println(HelperFunctions.numToBitString(n));
+		System.out.println(HelperFunctions.numToBitString(m));
+		System.out.println(HelperFunctions.numToBitString(result));
 	}
 	
 	public static int insertNumber(int n, int m, int i, int j)

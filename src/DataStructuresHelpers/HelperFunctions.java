@@ -17,14 +17,14 @@ public class HelperFunctions {
 		return head;
 	}
 	
-	public static String numToBitString(int n, int limit)
+	public static String numToBitString(int n)
 	{
 		String bitString = "";
-		for(int i=0; i < limit; i++)
+		while(n != 0)
 		{
 			Integer lsb = new Integer(n & 1);
 			bitString = lsb.toString() + bitString;
-			n = n >> 1;
+			n = n >>>= 1;
 		}
 		return bitString;
 	}
